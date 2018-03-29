@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>リアルタイム列車遅延マップ | 東京公共交通オープンデータチャレンジ</title>
+		<link rel="icon" href="./img/favicon.ico">
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+		<link rel="stylesheet" href="./libs/calcite-maps/css/calcite-bootstrap.min-v0.2.css">
+  	<link rel="stylesheet" href="./libs/calcite-maps/css/calcite-maps-arcgis-4.x.min-v0.2.css">
+		<link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+		<link rel="stylesheet" href="./css/style.css">
+
+		<script>
+			var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+			var dojoConfig = {
+				packages: [{
+					name: 'config',
+					location: package_path + '/config'
+				}, {
+					name: 'app',
+					location: package_path + '/js'
+				}, {
+					name: 'widgets',
+					location: package_path + '/js/widgets/app'
+				}]				
+			};
+		</script>
+
+		<script src="https://js.arcgis.com/4.6/"></script>
+
+		<script type="text/plain" id="timecalc-arcade">
+			var updtime = DateAdd(Date($feature.updtime), -9, 'hours');
+			var y = Year(updtime);
+			var mo = Month(updtime) + 1;
+			var d = Day(updtime);
+			var h = Hour(updtime);
+			var mi = Minute(updtime);
+			var s = Second(updtime);
+
+			mi = IIf(mi < 10, '0' + d, mi);
+			s = IIf(s < 10, '0' + s, s);
+
+			return y + '/' + mo + '/' + d + ' ' + h + ':' + mi + ':' + s;
+		</script>
+
+		<script>
+			require([
+				'config/defaults',
+				'app/main',
+				'dojo/domReady!'
+			], function (config, App) {
+			var app = new App();
+				app.startup(config);
+			});
+		</script>
+	</head>
+
+  <body class="calcite-maps calcite-nav-top">
+
+		<nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark">
+			<div class="calcite-title calcite-overflow-hidden">
+				<span class="calcite-title-main">リアルタイム列車遅延マップ</span>
+				<span class="calcite-title-delay calcite-title-delay--hide">現在、遅延はありません</span>
+			</div>
+			<ul class="nav navbar-nav calcite-nav">
+				<li class="nav-button"><a role="button" data-target="#panelInfo" aria-haspopup="true">クレジット</a></li>
+			</ul>
+		</nav>
+
+		<div class="calcite-map calcite-map-absolute">
+			<div id="viewDiv"></div>
+		</div>
+
+		<div class="calcite-panels calcite-panels-right calcite-text-dark calcite-bg-light panel-group">
+			<div id="panelInfo" class="panel collapse">
+				<div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
+					<div class="panel-body">
+						<div>
+							<p>本アプリケーションは<a href="https://tokyochallenge.odpt.org/" target="_blank">東京公共交通オープンデータチャレンジ</a>において提供されるデータを使用しています。データの正確性や完全性を保証するものではありません。<br/>
+							また、本アプリケーションに掲載された情報に基づいて被ったいかなる損害についても一切責任を負いません。</p>
+							<p>アプリケーションに関する問い合わせは<a href="https://www.esrij.com/" target="_blank">ESRIジャパン</a>へお願いします。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="buttonDiv">
+			<div>
+				<button id="legendBtn" title="凡例">
+					<i class="fas fa-list-ul"></i>
+				</button>
+			</div>
+			<div>
+				<button id="basemapBtn" title="ベースマップギャラリー">
+					<span class="esri-icon-basemap" aria-label="basemap icon"></span>
+				</button>
+			</div>
+			<div>
+				<button id="weatherInfoBtn" title="気象情報">
+					<i class="fas fa-cloud"></i>
+				</button>
+			</div>
+			<div>
+				<button id="twitterInfoBtn" title="Twitter">
+					<i class="fab fa-twitter"></i>
+				</button>
+			</div>
+		</div>
+
+	</body>
+</html>

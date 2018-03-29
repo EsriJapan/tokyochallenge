@@ -1,0 +1,305 @@
+html,
+body,
+#viewDiv {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+  margin: 0;
+  font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+}
+
+/* ナビゲーション */
+
+.calcite-title-main {
+  margin-left: 20px;
+}
+
+.nav-createdInfo {
+  color: #fff;
+  padding: 13px 15px;
+  font-size: 14px;
+}
+
+/* 遅延なし時 */
+
+.calcite-title-delay {
+  margin-left: 10px;
+  color: #FFEB3B;
+  padding: 13px 15px;
+  font-size: 14px;
+}
+
+.calcite-title-delay--hide {
+  display: none;
+}
+
+/* ボタン */
+
+#buttonDiv {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	display: flex;
+}
+
+#buttonDiv div {
+	width: 50px;
+	height: 50px;
+	margin: 5px;
+}
+
+#buttonDiv button {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+	height: 100%;
+  width: 100%;
+  font-size: 20px;
+  color: #cccccc;
+  background-color: #fff;
+  border: 0.5px solid #cccccc;
+  border-radius: 50%;
+  outline: none;
+}
+
+#buttonDiv button:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+/* 凡例 */
+
+.esri-component.esri-legend.esri-widget {
+  display: none;
+}
+
+.esri-legend__layer-caption{
+  display: none;
+}
+
+/* ポップアップ */
+
+.esri-popup-renderer__content-element {
+  padding: 0;
+}
+
+.pop--delay-minutes1 {
+  font-size: 18px;
+  color: red;
+}
+
+.pop--delay-minutes2 {
+  font-size: 16px;
+}
+
+.pop--delay-updtime {
+  font-size: 12px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+}
+
+/* BasemapGallery */
+
+#basemapBtn {
+  padding-top: 5px;
+}
+
+.esri-basemap-gallery--source-loading {
+  display: none;
+}
+
+.esri-basemap-gallery--hide {
+  display: none;
+}
+
+/* WeatherInfo Widget */
+
+.weatherinfo-info {
+	background-color: #fff;
+	padding: 10px;
+}
+
+.weatherinfo-info input {
+  width: 400px;
+}
+
+.weatherinfo-info--hide {
+	display: none;
+}
+
+.weatherinfo-info--container {
+	display: flex;
+}
+
+.weatherinfo-info--item {
+	margin: 0 5px;
+}
+
+.weatherinfo-info--label {
+	font-size: 80%;
+	min-width: 55px;
+}
+
+.weatherinfo-info--button {
+	font-size: 120%;
+}
+
+.weatherinfo-info--button:hover {
+	cursor: pointer;
+}
+
+.weatherinfo-info--label, .weatherinfo-info--button {
+	text-align: center;
+}
+
+/* TwitterInfo */
+
+.twitter-info--hide {
+	display: none;
+}
+
+.twitter-info {
+  background-color: #fff;
+}
+
+.twitter-info--box {
+	height: 600px;
+	width: 400px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.twitter-info--tweetbox {
+  height: 95%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.twitter-info--dropdownbox {
+  height: 5%;
+  font-size: 80%;
+}
+
+/* つぶやきの表示 */
+
+.twitter-info--tweetframe {
+  margin-left: 0px;
+  padding: 16px 16px 16px 72px;
+  position: relative;
+}
+
+.twitter-info--tweetframe > img {
+  color: rgb(255, 255, 255);
+  background-color: rgb(188, 188, 188);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.twitter-info--tweetusername {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.twitter-info--tweetusername img {
+  height: 16px;
+}
+
+.twitter-info--tweettext p {
+  font-size: 14px;
+  margin: 4px 0px 0px;
+}
+
+.twitter-info--tweetactions img {
+  height: 14px;
+}
+
+.twitter-info--tweetactions span {
+  margin-right: 10px;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+}
+
+.twitter-info hr {
+  margin: -1px 0px 0px 72px;
+  height: 1px;
+  border: none;
+  background-color: rgb(224, 224, 224);
+}
+
+/* ドロップダウンリストの表示 */
+
+.twitter-info--dropdownbox select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 80%;
+	padding: 0 10px;
+	margin: 2.5px 10%;
+  border: 1px solid rgb(224, 224, 224);
+  background: #eee;
+  display: inline-block;
+  line-height: 1.5em;
+  background-image:
+    linear-gradient(45deg, transparent 50%, black 50%),
+    linear-gradient(135deg, black 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 767px) {
+  .calcite-title-main {
+    font-size: 16px;
+  } 
+  
+  .calcite-title-delay {
+    font-size: 8px;
+    margin-left: 0px;
+  }
+
+  .nav-button > a {
+    font-size: 10px !important;
+  }
+
+  #buttonDiv {
+    right: 5px;
+    width: 120px;
+    flex-wrap: wrap;
+  }
+
+  #buttonDiv div {
+    margin: 1px;
+  }
+
+  #buttonDiv button {
+    font-size: inherit;
+  }
+
+  .weatherinfo-info input {
+    width: auto;
+  }
+
+  .twitter-info--box {
+    height: 400px;
+    width: 300px;
+  }
+
+  .twitter-info--tweetbox {
+    height: 93%;
+  }
+
+  .twitter-info--dropdownbox {
+    height: 7%;
+  }
+}
